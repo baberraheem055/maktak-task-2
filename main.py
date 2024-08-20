@@ -23,7 +23,7 @@ llm = ChatGroq(
     )
 
 # Set up the Streamlit app title
-st.image("C:\\Users\\Babar Raheem\\Desktop\\logo.png", use_column_width=True)
+st.image("logo.png", use_column_width=True)
 st.title("Prompt-Driven Analysis with PandasAI")
 
 # File uploader for CSV files
@@ -49,7 +49,7 @@ if uploaded_file:
                 col1, col2 = st.columns([1, 5])
                 
                 with col1:
-                    st.image("C:\\Users\\Babar Raheem\\Desktop\\download.jpg", width=50)
+                    st.image("download.jpg", width=50)
 
                 with col2:
                     st.write(response)
