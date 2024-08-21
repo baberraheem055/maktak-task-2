@@ -7,7 +7,7 @@ import matplotlib
 from langchain_groq import ChatGroq
 
 # To select backend for matplotlib
-matplotlib.use("TkAgg")
+matplotlib.use('Agg')
 
 # Load environment variables
 load_dotenv()
