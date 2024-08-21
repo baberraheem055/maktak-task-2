@@ -52,7 +52,7 @@ if uploaded_file:
                     st.image("download.jpg", width=50)
 
                 with col2:
-                    response = df.chat(Prompt)
+                    st.write(response = df.chat(Prompt))
             
 
                                 
