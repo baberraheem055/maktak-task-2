@@ -8,7 +8,7 @@ import matplotlib
 from langchain_groq.chat_models import ChatGroq
 
 # To select backend for matplotlib
-matplotlib.use("TkAgg")
+# matplotlib.use("TkAgg")
 
 # Load environment variables
 load_dotenv()
