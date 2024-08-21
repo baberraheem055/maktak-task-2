@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 from pandasai import SmartDataframe
-# from pandasai.llm.google_gemini import GoogleGemini
 from dotenv import load_dotenv
 import streamlit as st
 import matplotlib
@@ -16,11 +15,12 @@ load_dotenv()
 # Retrieve the API key
 API_KEY = os.environ['GROQ_API_KEY']
 
+# Initialize the LLM
 llm = ChatGroq(
-        temperature=0,
-        groq_api_key= API_KEY,
-        model_name="llama-3.1-70b-versatile"
-    )
+    temperature=0,
+    groq_api_key=API_KEY,
+    model_name="llama-3.1-70b-versatile"
+)
 
 # Set up the Streamlit app title
 st.image("logo.png", use_column_width=True)
@@ -44,17 +44,18 @@ if uploaded_file:
     if st.button("Generate"):
         if Prompt:
             with st.spinner("Generating response..."):
-                response = df.chat(Prompt)
-                # Display response with the logo
-                col1, col2 = st.columns([1, 5])
-                
-                with col1:
-                    st.image("download.jpg", width=50)
+                try:
+                    response = df.chat(Prompt)  # Call df.chat(Prompt) once
+                    # Display response with the logo
+                    col1, col2 = st.columns([1, 5])
+                    
+                    with col1:
+                        st.image("download.jpg", width=50)
 
-                with col2:
-                    st.write(response = df.chat(Prompt))
-            
+                    with col2:
+                        st.write(response)
 
-                                
+                except Exception as e:
+                    st.error(f"An error occurred: {e}")
         else:
             st.warning("Please enter a prompt")
