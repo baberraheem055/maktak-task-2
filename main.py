@@ -52,7 +52,11 @@ if uploaded_file:
                     st.image("download.jpg", width=50)
 
                 with col2:
-                        st.write(response)
-                
+                     try:
+                        response = df.chat(Prompt)
+                except Exception as e:
+                        st.error(f"An error occurred: {str(e)}")
+
+                                
         else:
             st.warning("Please enter a prompt")
